@@ -42,19 +42,12 @@ struct CustomNavigationView: View {
                 }
                 .offset(y: 18)
             }
-            .padding(.trailing, 30)
+            //.padding(.trailing, 30)
         }
         .frame(height: 50)
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarBackButtonHidden(true)
         .onAppear() {
-//            let str = "Trade by bata"
-//            let clean = str.filter{ $0.isLetter || $0.isWhitespace }
-//            if let lastIndex = clean.lastIndex(of: " "),
-//               let index = clean.index(lastIndex, offsetBy: 1, limitedBy: clean.index(before: clean.endIndex)) {
-//                let lastWord = clean[index...]
-//                print(lastWord)
-//            }
         }
     }
 }

@@ -75,7 +75,7 @@ struct CardDescription: View {
                                       index: index +  1)
                     }
                 }
-                .padding(.vertical, 30)
+                .padding(.top, 30)
                 HStack(spacing: 0) {
                     Text(name)
                         .customFont(size: 14, weight: .bold, color: .b_161826)
@@ -112,8 +112,12 @@ struct CardDescription: View {
                                 ColorButton(currentColor: $currentColor,
                                             index: index,
                                             color: colours[index])
+                                .onAppear() {
+                                    print(colours[index])
+                                }
                             }
                         }
+                        
                     }
                     Spacer()
                 }

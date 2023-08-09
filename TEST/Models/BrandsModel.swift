@@ -13,9 +13,9 @@ struct BrandsModel: Codable {
     let name, picture: String
     
     enum CodingKeys: String, CodingKey {
-        case id = "ID"
-        case name = "NAME"
-        case picture = "PICTURE"
+        case id = "id"
+        case name = "name"
+        case picture = "pictures"
     }
 }
 

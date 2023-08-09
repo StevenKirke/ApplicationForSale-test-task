@@ -93,24 +93,24 @@ struct LoginView: View {
             self.loginVM.firstName = ""
             self.loginVM.password = ""
         }
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button(action: {
-                    if loginVM.firstName.isEmpty {
-                        focused = .firstNameField
-                    } else if loginVM.password.isEmpty {
-                        focused = .password
-                    } else {
-                        UIApplication.shared.endEditing()
-                    }
-                }) {
-                     Text("Next")
-                        .customFont(size: 14, weight: .bold, color: .black)
-                }
-                .buttonStyle(.borderless)
-            }
-        }
+//        .toolbar {
+//            ToolbarItemGroup(placement: .keyboard) {
+//                Spacer()
+//                Button(action: {
+//                    if loginVM.firstName.isEmpty {
+//                        focused = .firstNameField
+//                    } else if loginVM.password.isEmpty {
+//                        focused = .password
+//                    } else {
+//                        UIApplication.shared.endEditing()
+//                    }
+//                }) {
+//                     Text("Next")
+//                        .customFont(size: 14, weight: .bold, color: .black)
+//                }
+//                .buttonStyle(.borderless)
+//            }
+//        }
 
     }
 }

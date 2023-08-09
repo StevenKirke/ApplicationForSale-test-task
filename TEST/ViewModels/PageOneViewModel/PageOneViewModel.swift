@@ -22,10 +22,13 @@ class PageOneViewModel: ObservableObject {
     @Published var currentUser: UserModel?
     
     init() {
+        DispatchQueue.main.async {
+            self.getCurrentUser()
+        }
         self.getLatetData()
-        self.getSaleData()
-        self.getBrandsData()
-        self.getCurrentUser()
+        //self.getSaleData()
+       // self.getBrandsData()
+
     }
     
     func getCurrentUser() {
@@ -66,7 +69,7 @@ class PageOneViewModel: ObservableObject {
     func getSaleData() {
         self.requestData.getData(url: Urls.sale.rawValue, model: saleModels) { [weak self] data, err in
             if err != "" {
-                //print("errors \(String(describing: err))")
+                print("errors \(String(describing: err))")
             }
             guard let data = data else {
                 return
@@ -81,7 +84,7 @@ class PageOneViewModel: ObservableObject {
     func getBrandsData() {
         self.requestData.getData(url: Urls.branch.rawValue, model: brandsModel) { [weak self] data, err in
             if err != "" {
-                //print("errors \(String(describing: err))")
+                print("errors \(String(describing: err))")
             }
             guard let data = data else {
                 return

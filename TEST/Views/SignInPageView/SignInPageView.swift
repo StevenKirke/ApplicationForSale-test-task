@@ -100,26 +100,6 @@ struct SignInPageView: View {
                     Spacer()
                 }
                 .padding(.horizontal, 44)
-                .toolbar {
-                    ToolbarItemGroup(placement: .keyboard) {
-                        Spacer()
-                        Button(action: {
-                            if userModel.currentUser.firstName.isEmpty {
-                                focused = .firstNameField
-                            } else if userModel.currentUser.lastName.isEmpty {
-                                focused = .lastNameField
-                            } else if userModel.currentUser.email.isEmpty {
-                                focused = .emailField
-                            } else {
-                                UIApplication.shared.endEditing()
-                            }
-                        }) {
-                             Text("Next")
-                                .customFont(size: 14, weight: .bold, color: .black)
-                        }
-                        .buttonStyle(.borderless)
-                    }
-                }
             }
         }
         .navigationBarTitle("", displayMode: .inline)

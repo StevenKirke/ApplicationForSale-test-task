@@ -16,13 +16,13 @@ struct CartForLatest: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             CustomImage(image: item.imageURL)
-                .scaledToFill()
-                .frame(width: 120, height: 150)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 9)
-                        .fill(LinearGradient(colors: [Color.white.opacity(0),Color.black.opacity(0.6)], startPoint: .top, endPoint: .bottom))
-                )
-                .mask(RoundedRectangle(cornerRadius: 9))
+                   .scaledToFill()
+                   .frame(width: 120, height: 150)
+                   .overlay(
+                       RoundedRectangle(cornerRadius: 9)
+                           .fill(LinearGradient(colors: [Color.white.opacity(0),Color.black.opacity(0.6)], startPoint: .top, endPoint: .bottom))
+                   )
+                   .mask(RoundedRectangle(cornerRadius: 9))
             HStack(alignment: .bottom, spacing: 0) {
                 VStack(alignment: .leading, spacing: 5) {
                     Text(item.category)

@@ -21,7 +21,7 @@ struct CardForSale: View {
                         .cornerRadius(11)
                         .shadow(radius: 4)
                     CustomImage(image: item.imageURL)
-                        .scaledToFill()
+                        .scaledToFit()
                         .frame(width: 184)
                         .overlay(
                             RoundedRectangle(cornerRadius: 9)
@@ -61,11 +61,13 @@ struct CardForSale: View {
                                 HStack(spacing: 0) {
                                     Text(item.name)
                                         .customFont(size: 12, weight: .bold, color: .black)
-                                        .lineLimit(3)
+                                        .lineLimit(2)
                                         .multilineTextAlignment(.leading)
+                                        .fixedSize(horizontal: false, vertical: true)
                                     Spacer()
                                         .frame(width: 50)
                                 }
+                                .frame(height: 40, alignment: .top)
                                 Text("$ \(workNumber.forTrailingZero(number: item.price))")
                                     .customFont(size: 12, weight: .bold, color: .black)
                             }
@@ -97,13 +99,29 @@ struct CardForSale: View {
 #if DEBUG
 struct CardForSale_Previews: PreviewProvider {
     static var previews: some View {
-        CardForSale(item: saleMock)
+        ScrollView(.horizontal) {
+            HStack {
+                CardForSale(item: saleMockFirst)
+                CardForSale(item: saleMockSecond)
+                CardForSale(item: saleMockThird)
+            }
+        }
     }
 }
 #endif
 
-var saleMock: FlashSale =  FlashSale(category: "Kids",
-                                     name: "New balance sneakers",
+var saleMockFirst: FlashSale =  FlashSale(category: "Kids",
+                                     name: "New balance",
                                      price: 18.00,
                                      discount: 30,
-                                     imageURL: "https://assets.reebok.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/3613ebaf6ed24a609818ac63000250a3_9366/Classic_Leather_Shoes_-_Toddler_White_FZ2093_01_standard.jpg")
+                                     imageURL: "https://www.kids-world.com/images/ZA050.jpg")
+var saleMockSecond: FlashSale =  FlashSale(category: "Kids",
+                                     name: "New Balance Sneakers",
+                                     price: 22.5,
+                                     discount: 30,
+                                     imageURL: "https://cdn.shopify.com/s/files/1/2358/2817/products/New-Balance-550-Burgundy-Cyan-1.png?v=1689610356&width=1940")
+var saleMockThird: FlashSale =  FlashSale(category: "Kids",
+                                     name: "Reebok BB 4000 II Shoes - White/Core Black/Pure Grey",
+                                     price: 98.95,
+                                     discount: 30,
+                                     imageURL: "https://shop.ccs.com/cdn/shop/products/195744069953-2.jpg?v=1682037290")
